@@ -1,0 +1,133 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!doctype html>
+<html>
+	<head>
+		<title>Breakout</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://static.codehs.com/gulp/cb01b4a22ffd3971572a8a1ab9f3b7c4cb17f383/chs-js-lib/chs.js"></script>
+		<script>
+                      window.onload = function() {
+var NUM_ROWS = 8;
+var BRICK_TOP_OFFSET = 10;
+var BRICK_SPACING = 2;
+var NUM_BRICKS_PER_ROW = 10;
+var BRICK_HEIGHT = 10;
+var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
+var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+
+/* Constants for ball and paddle */
+var PADDLE_WIDTH = 80;
+var PADDLE_HEIGHT = 15;
+var PADDLE_OFFSET = 10;
+var ball;
+var dx = 4;
+var dy = 4;
+var BALL_RADIUS = 15;
+
+var rect2 = new Rectangle(PADDLE_WIDTH, PADDLE_HEIGHT);
+var txt;
+
+function start(){
+    row(Color.red, BRICK_TOP_OFFSET);
+    row(Color.red, BRICK_TOP_OFFSET + 12);
+    row(Color.orange, BRICK_TOP_OFFSET + 24);
+    row(Color.orange, BRICK_TOP_OFFSET + 36);
+    row(Color.green, BRICK_TOP_OFFSET + 48);
+    row(Color.green, BRICK_TOP_OFFSET + 60);
+    row(Color.blue, BRICK_TOP_OFFSET + 72);
+    row(Color.blue, BRICK_TOP_OFFSET + 84);
+
+    ball = new Circle(BALL_RADIUS);
+	ball.setPosition(getWidth()/2, getHeight()/2 );
+	add(ball);
+	setTimer(draw, 20);
+	
+	mouseMoveMethod(paddle);
+	add(rect2);
+}
+
+
+function row(Color, y){
+    for(var i = 0; i < 10; i++){
+        var rect = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        rect.setPosition(2+i*(BRICK_WIDTH + BRICK_SPACING), y);
+        rect.setColor(Color);
+        add(rect);
+    }
+}
+
+function draw(){
+	checkWalls();
+	ball.move(dx, dy);
+
+}
+
+function checkWalls(){
+	// Bounce off right wall
+	if(ball.getX() + ball.getRadius() > getWidth()){
+		dx = -dx;
+	}
+	
+	// Bounce off left wall
+	if(ball.getX() - ball.getRadius() < 0){
+		dx = -dx;
+	}
+	
+	// Bounce off bottom wall
+	if(ball.getY() + ball.getRadius() > getHeight()){
+		dy = -dy;
+	}
+	
+	// Bounce off top wall
+	if(ball.getY() - ball.getRadius() < 0){
+		dy = -dy;
+	}
+	
+		bounce();
+}
+
+function paddle(e){
+    rect2.setPosition(e.getX(), 450);
+}
+
+function bounce(){
+    var elem = getElementAt(ball.getX(), ball.getY()+15);
+    if (elem === rect2){
+        dy = -Math.abs(dy);
+    }else if (elem !== null){
+        dy = -Math.abs(dy);
+        remove(elem);
+        
+    }
+    
+    
+    
+    elem = getElementAt(ball.getX(), ball.getY()-15);
+    if (elem !== null){
+        dy = -(dy);
+        remove(elem);
+        
+    }
+}
+
+
+                        if (typeof start === 'function') {
+                            start();
+                        }
+                    };
+  	</script>
+		<style>
+			canvas {
+    				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow: hidden;">
+			<canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
+		</div>
+	</body>
+</html>

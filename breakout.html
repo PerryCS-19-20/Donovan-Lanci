@@ -5,114 +5,103 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Breakout</title>
+		<title>CS:GO SIM</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="/chs.js"></script>
-		<script>
-		var NUM_ROWS = 8;
-var BRICK_TOP_OFFSET = 10;
-var BRICK_SPACING = 2;
-var NUM_BRICKS_PER_ROW = 10;
-var BRICK_HEIGHT = 10;
-var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
-var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+		<script type="text/javascript" src="chs.js"></script>
+                <script>
+var RADIUS = 20;
+var OFF_SCREEN = -200;
+var DELAY = 600;
+var WIN_SCORE = 20;
 
-/* Constants for ball and paddle */
-var PADDLE_WIDTH = 80;
-var PADDLE_HEIGHT = 15;
-var PADDLE_OFFSET = 10;
 var ball;
-var dx = 4;
-var dy = 4;
-var BALL_RADIUS = 15;
+var score = 10;
+var scoreText;
 
-var rect2 = new Rectangle(PADDLE_WIDTH, PADDLE_HEIGHT);
-var txt;
-
+// This is the entrance to our program,
+// the crazy ball game.
 function start(){
-    row(Color.red, BRICK_TOP_OFFSET);
-    row(Color.red, BRICK_TOP_OFFSET + 12);
-    row(Color.orange, BRICK_TOP_OFFSET + 24);
-    row(Color.orange, BRICK_TOP_OFFSET + 36);
-    row(Color.green, BRICK_TOP_OFFSET + 48);
-    row(Color.green, BRICK_TOP_OFFSET + 60);
-    row(Color.blue, BRICK_TOP_OFFSET + 72);
-    row(Color.blue, BRICK_TOP_OFFSET + 84);
+	setupBall();
+	setTimer(changeBall, DELAY);
+	mouseClickMethod(clickHandler);
+	
+	scoreText = new Text(score);
+	scoreText.setPosition(0, getHeight());
+	add(scoreText);
+}
 
-    ball = new Circle(BALL_RADIUS);
-	ball.setPosition(getWidth()/2, getHeight()/2 );
+// Handle a click. We get the element
+// at that location. If it was a green
+// circle then we give the user a point,
+// otherwise we take away a point. We
+// update the score each round as well.
+function clickHandler(e){
+	var elem = getElementAt(e.getX(), e.getY());
+	if(elem !== null && elem.getColor() === Color.green){
+		score++;
+	}else{
+		score--;
+	}
+	
+	if(score === 0){
+		displayMessage("You Lose :(");
+	}
+	if(score === WIN_SCORE){
+		displayMessage("You Win :)");
+	}
+	
+	scoreText.setText(score);
+}
+
+// Display a message on the screen 
+// at the end of the game, and stop
+// the game timer.
+function displayMessage(text){
+	stopTimer(changeBall);
+	var msg = new Text(text);
+	msg.setPosition(getWidth()/2 - msg.getWidth()/2, 200);
+	add(msg);
+}
+
+// This changes some properties of the
+// ball-- it sets its position to a random
+// location on the screen, and changes 
+// its color to red, green, or yellow.
+function changeBall(){
+	var x = Randomizer.nextInt(ball.getRadius(),
+		getWidth() - ball.getRadius());
+	var y = Randomizer.nextInt(ball.getRadius(), getHeight() - ball.getRadius());
+	
+	ball.setPosition(x, y);
+	changeColor();
+}
+
+// This function changes the color of the 
+// ball by picking a random number: 0, 1 
+// or 2, and then using that number to 
+// pick a color.
+function changeColor(){
+	var colorCode = Randomizer.nextInt(0, 2);
+	var color;
+	if(colorCode === 0){
+		color = Color.red;
+	}else if(colorCode === 1){
+		color = Color.yellow;
+	}else{
+		color = Color.green;
+	}
+	
+	ball.setColor(color);
+}
+
+// This does the initial setup of the 
+// ball, and places it offscreen.
+function setupBall(){
+	ball = new Circle(RADIUS);
+	ball.setPosition(OFF_SCREEN, OFF_SCREEN);
 	add(ball);
-	setTimer(draw, 20);
-	
-	mouseMoveMethod(paddle);
-	add(rect2);
 }
-
-
-function row(Color, y){
-    for(var i = 0; i < 10; i++){
-        var rect = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
-        rect.setPosition(2+i*(BRICK_WIDTH + BRICK_SPACING), y);
-        rect.setColor(Color);
-        add(rect);
-    }
-}
-
-function draw(){
-	checkWalls();
-	ball.move(dx, dy);
-
-}
-
-function checkWalls(){
-	// Bounce off right wall
-	if(ball.getX() + ball.getRadius() > getWidth()){
-		dx = -dx;
-	}
-	
-	// Bounce off left wall
-	if(ball.getX() - ball.getRadius() < 0){
-		dx = -dx;
-	}
-	
-	// Bounce off bottom wall
-	if(ball.getY() + ball.getRadius() > getHeight()){
-		dy = -dy;
-	}
-	
-	// Bounce off top wall
-	if(ball.getY() - ball.getRadius() < 0){
-		dy = -dy;
-	}
-	
-		bounce();
-}
-
-function paddle(e){
-    rect2.setPosition(e.getX(), 450);
-}
-
-function bounce(){
-    var elem = getElementAt(ball.getX(), ball.getY()+15);
-    if (elem === rect2){
-        dy = -Math.abs(dy);
-    }else if (elem !== null){
-        dy = -Math.abs(dy);
-        remove(elem);
-        
-    }
-    
-    
-    
-    elem = getElementAt(ball.getX(), ball.getY()-15);
-    if (elem !== null){
-        dy = -(dy);
-        remove(elem);
-        
-    }
-}
-
-  	</script>
+        </script>
 		<style>
 			canvas {
     				border: 1px solid black;

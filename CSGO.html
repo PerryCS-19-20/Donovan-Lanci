@@ -1,14 +1,11 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
-		<title>CS:GO SIM</title>
+		<title>Secret CS:GO Sim</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="chs.js"></script>
-                <script>
+		<script type="text/javascript" src="https://static.codehs.com/gulp/cb01b4a22ffd3971572a8a1ab9f3b7c4cb17f383/chs-js-lib/chs.js"></script>
+		<script>
+                      window.onload = function() {
 var RADIUS = 20;
 var OFF_SCREEN = -200;
 var DELAY = 600;
@@ -101,7 +98,11 @@ function setupBall(){
 	ball.setPosition(OFF_SCREEN, OFF_SCREEN);
 	add(ball);
 }
-        </script>
+                        if (typeof start === 'function') {
+                            start();
+                        }
+                    };
+  	</script>
 		<style>
 			canvas {
     				border: 1px solid black;
@@ -112,12 +113,5 @@ function setupBall(){
 		<div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow: hidden;">
 			<canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
 		</div>
-		<script>
-			window.onload = function() {
-				if (typeof start === 'function') {
-        					start();
-    				}
-			};
-		</script>
 	</body>
 </html>

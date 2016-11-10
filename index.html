@@ -2,15 +2,23 @@
  <html>
 	<head>
 		<title>Donovan's Myspace</title>
+                <script>
+                    function clicked(){
+                        alert("Welcome to Myspace!");
+                    }
+                    function changeColor(colorName){
+                        document.body.style.backgroundColor = colorName;
+                    }
+                </script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
-		<h1> Welcome to Donovan's Myspace </h1>
+            <span onclick="clicked();"><h1> Welcome to Donovan's Myspace </h1></span>
 		<hr>
                 <a href="CSGO.html"><img src="letsride.gif" alt="Let's Ride"></a>
 		<hr>
-		<h3> My name Donovan and I have a kool friend Bailey </h3>
+		<span onmouseover ="changeColor('pink');"><h3> My name Donovan and I have a kool friend Bailey </h3></span>
                 <span id="s1"><li> I am a student @ Perry High School </li></span>
                 <span id="s2"><li> I like to hangout with friends and play video games </li></span>
                 <span id="s3"><li> I enjoy coding and building computers </li></span>

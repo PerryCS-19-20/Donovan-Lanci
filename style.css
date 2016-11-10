@@ -6,3 +6,21 @@ img {
   height:200px;
   width:500px;
 }
+span {
+    font-weight:bold;
+}
+#s1 {
+    color:red;
+}
+#s2 {
+    color:orange;
+}
+#s3 {
+    color:yellow;
+}
+#s4 {
+    color:green
+}
+#s5 {
+    color:blue
+}

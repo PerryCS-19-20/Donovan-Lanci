@@ -1,0 +1,24 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Addon</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <textarea rows="10" cols="80" id="J1"><h1>Bob Harper Blesses you with Holy Kbat</h1></textarea>
+        <button onclick="testHTML();">Click here for his blessing!</button>
+        <span id="S6" onclick="testHTML();"></span>
+        <script>
+            function testHTML(){
+                var theSpan = document.getElementById("S6");
+                var userInput = document.getElementById("J1");
+                theSpan.innerHTML = userInput.value;
+            }
+        </script>
+        <h3>HTML FunSpace</h3>
+    </body>
+</html>

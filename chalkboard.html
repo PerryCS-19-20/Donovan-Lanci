@@ -5,12 +5,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Donovan's Bio</title>
-        <script>
-            function changeColor(colorName){
-                document.body.style.backgroundColor = colorName;
-                    }
-        </script>
+        <title>Text Content</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
     </head>
@@ -25,11 +20,20 @@ and open the template in the editor.
             <li><span onmouseover ="changeColor('indigo');"><a href="chalkboard.html"><h4>Simpsons Chalkboard</h4></a></span></li>
             <li><span onmouseover ="changeColor('lightCyan');"><a href="tictactoe.html"><h4>Tic-Tac-Toe</h4></a></span></li>
             </ul>
-<span onmouseover ="changeColor('brown');"><h3> My name Donovan and I have a kool friend Bailey </h3></span>
-                <span id="s1" onmouseover ="changeColor('blue');"><li> I am a student @ Perry High School </li></span>
-                <span id="s2" onmouseover ="changeColor('green');"><li> I like to hangout with friends and play video games </li></span>
-                <span id="s3" onmouseover ="changeColor('purple');"><li> I enjoy coding and building computers </li></span>
-                <span id="s4" onmouseover ="changeColor('orange');"><li> I have five AP classes this year </li></span>
-                <span id="s5" onmouseover ="changeColor('red');"><li> I play golf on the weekend (occasionally) </li></span>
+        <br>
+        <textarea rows="30" cols="50" id="inputText"> waste chalk ;)</textarea>
+        <button onclick="textArea();">The Simpson's</button>
+        <ul id="box"></ul>
+        <script>
+            function textArea(){
+            for (var i = 0; i < 100; i++) {
+                var span = document.getElementById("box");
+                var items = document.getElementById("inputText");
+                var list = document.createElement("li");
+                list.textContent = "I will not" + items.value;
+                span.appendChild(list);
+                }
+            }
+        </script>
     </body>
 </html>

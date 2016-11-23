@@ -1,0 +1,96 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic-Tac-Toe</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            table {
+                border-spacing:5px;
+                
+            }
+            td {
+                font-size:200px;
+                color:black;
+                font-family:georgia;
+                text-align:center;
+                width:200px;
+                height:200px;   
+            }
+        </style>
+        <script>
+            function changeColor(colorName){
+                        document.body.style.backgroundColor = colorName;
+                    }
+            var player = "X"
+            function play(cellId){
+                var cell = document.getElementById(cellId);
+                if (cell.textContent === ""){
+                    cell.textContent = player;
+                    checkWin();
+                }
+                    if(player === "X"){
+                        player = "O";
+                    }else{
+                        player = "X";
+                    }
+                }
+            function checkWin(){
+                checkCell("a1","a2","a3");
+                checkCell("b1","b2","b3");
+                checkCell("c1","c2","c3");
+                checkCell("a1","b1","c1");
+                checkCell("a2","b2","b3");
+                checkCell("a3","b3","c3");
+                checkCell("a1","b2","c3");
+                checkCell("a3","b2","c1");
+                
+            }
+            function checkCell(x1Id,x2Id,x3Id){
+                    var x1 = document.getElementById(x1Id);
+                    var x2 = document.getElementById(x2Id);
+                    var x3 = document.getElementById(x3Id);
+                    if ((x1.textContent == x2.textContent) && (x2.textContent == x3.textContent) && (x1.textContent != "")){
+                        win = true;
+                        x1.style.backgroundImage= "url(giphy.gif)";
+                        x2.style.backgroundImage= "url(giphy.gif)";
+                        x3.style.backgroundImage= "url(giphy.gif)";
+                }
+            }
+           
+            
+        </script>
+    </head>
+    <body>
+            <ul class="navbar">
+            <li><span onmouseover ="changeColor('SeaGreen');"><a href="index.html"><h4>Home</h4></a></span></li>
+            <li><span onmouseover ="changeColor('pink');"><a href="bio.html"><h4>About Me</h4></a></span></li>
+            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
+            <li><span onmouseover ="changeColor('cyan');"><a href="https://codehs.com/editor/html/158796/274635/index.html"><h4>Song Table</h4></a></span></li>
+            <li><span onmouseover ="changeColor('PaleGoldenRod');"><a href="htmltest.html"><h4>HTML FunSpace</h4></a></span></li>
+            <li><span onmouseover ="changeColor('cadetBlue');"><a href="todolist.html"><h4>List Maker</h4></a></span></li>
+            <li><span onmouseover ="changeColor('indigo');"><a href="chalkboard.html"><h4>Simpsons Chalkboard</h4></a></span></li>
+            <li><span onmouseover ="changeColor('lightCyan');"><a href="tictactoe.html"><h4>Tic-Tac-Toe</h4></a></span></li>
+            </ul>
+        <table border = "10">
+    <tr>
+        <td id="a1" onclick="play('a1');"></td>
+        <td id="a2" onclick="play('a2');"></td>
+        <td id="a3" onclick="play('a3');"></td>
+    </tr>
+    <tr>
+        <td id="b1" onclick="play('b1');"></td>
+        <td id="b2" onclick="play('b2');"></td>
+        <td id="b3" onclick="play('b3');"></td>
+    </tr>
+    <tr>
+        <td id="c1" onclick="play('c1');"></td>
+        <td id="c2" onclick="play('c2');"></td>
+        <td id="c3" onclick="play('c3');"></td>
+    </tr>
+        </table>
+    </body>
+</html>

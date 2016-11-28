@@ -25,6 +25,9 @@ and open the template in the editor.
         <button onclick="testHTML();">Click here for his blessing!</button>
         <span id="S6" onclick="testHTML();"></span>
         <script>
+            function changeColor(colorName){
+                        document.body.style.backgroundColor = colorName;
+                    }
             function testHTML(){
                 var theSpan = document.getElementById("S6");
                 var userInput = document.getElementById("J1");

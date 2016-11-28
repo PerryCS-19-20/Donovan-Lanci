@@ -23,8 +23,11 @@ and open the template in the editor.
         <br>
         <textarea rows="30" cols="50" id="inputText"> waste chalk ;)</textarea>
         <button onclick="textArea();">The Simpson's</button>
-        <ul id="box"></ul>
+        <ol id="box"></ol>
         <script>
+            function changeColor(colorName){
+                        document.body.style.backgroundColor = colorName;
+                    }
             function textArea(){
             for (var i = 0; i < 100; i++) {
                 var span = document.getElementById("box");

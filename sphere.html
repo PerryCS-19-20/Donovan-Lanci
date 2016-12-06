@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Sphere Calc</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>
+            function calc() {
+                var r = parseFloat(document.getElementById("rad").value);
+                var vol = document.getElementById("vol");
+
+
+                vol.value = ((4/3)* Math.PI * r * r * r);
+            }
+        </script>
+        <style>
+            input[type=number] {
+                width: 64px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sphere volume:</h1>
+        <img src="http://www.calculateme.com/img/formulas/sphere-volume.png" style="width:200px;">
+        <h2>v =4/3 &pi; r <sup>3</sup></h2>
+        
+        r: <input type="number" id="rad" placeholder="radius">
+        <button onclick="calc();">Calculate</button>
+        <hr>
+        v: <input type="output" id="vol" placeholder="volume" readonly>
+    </body>
+</html>

@@ -6,22 +6,18 @@ and open the template in the editor.
 <html>
     <head>
         <title>Donovan's Bio</title>
+        <script src="sitemap.js"></script>
         <script>
             function changeColor(colorName){
                 document.body.style.backgroundColor = colorName;
                     }
         </script>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="menu.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
     </head>
-    <body>
-            <ul class="navbar">
-            <li><span onmouseover ="changeColor('lightCoral');"><a href="index.html"><h4>Home</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightgreen');"><a href="bio.html"><h4>About Me</h4></a></span></li>
-            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightcyan');"><a href="htmltext.html"><h4>Html and Text Editors</h4></a></span></li>
-            <li><span onmouseover ="changeColor('pink');"><a href="sitemap.html"><h4>Sitemap</h4></a></span></li>
-            </ul>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
 <span onmouseover ="changeColor('brown');"><h3> My name Donovan and I have a kool friend Bailey </h3></span>
                 <span id="s1" onmouseover ="changeColor('blue');"><li> I am a student @ Perry High School </li></span>
                 <span id="s2" onmouseover ="changeColor('green');"><li> I like to hangout with friends and play video games </li></span>

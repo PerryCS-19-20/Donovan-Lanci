@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>Sphere Calc</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="stylesheet" type="text/css" href="menu.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="sitemap.js"></script>
         <script>
             function calc() {
                 var r = parseFloat(document.getElementById("rad").value);
@@ -21,7 +23,8 @@
             }
         </style>
     </head>
-    <body>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
         <h1>Sphere volume:</h1>
         <img src="http://www.calculateme.com/img/formulas/sphere-volume.png" style="width:200px;">
         <h2>v =4/3 &pi; r <sup>3</sup></h2>

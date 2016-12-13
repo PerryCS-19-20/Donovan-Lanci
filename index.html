@@ -2,26 +2,19 @@
  <html>
 	<head>
 		<title>Donovan's Myspace</title>
-                <script>
-                    function clicked(){
+                <script src="sitemap.js"></script>
+                    <script>
+                    function click(){
                         alert("Welcome to Myspace!");
                     }
-                     function changeColor(colorName){
-                        document.body.style.backgroundColor = colorName;
-                    }
                 </script>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="stylesheet" type="text/css" href="menu.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body>
-            <ul class="navbar">
-            <li><span onmouseover ="changeColor('lightCoral');"><a href="index.html"><h4>Home</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightgreen');"><a href="bio.html"><h4>About Me</h4></a></span></li>
-            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightcyan');"><a href="htmltext.html"><h4>Html and Text Editors</h4></a></span></li>
-            <li><span onmouseover ="changeColor('pink');"><a href="sitemap.html"><h4>Sitemap</h4></a></span></li>
-            </ul>
-            <span onclick="clicked();" onmouseover ="changeColor('plum');"><h1> Welcome to Donovan's Myspace </h1></span>
+	<body onload="buildMap('menubar');">
+        <div id="menubar"></div>
+        <span onclick="click();"><h1>Welcome to Donovan's Myspace</h1></span>
             
             <h4><pre> 
                               :$$
@@ -72,5 +65,15 @@
 
 
                 </pre></h4>
+            <h3>Click Present for a Suprise<h3>
+                    <pre><a style="text-decoration: none; "href="popup.html"><h4>
+              ((\o/))
+         .-----//^\\-----.
+         |    /`| |`\    |
+         |      | |      |
+         |      | |      |
+         |      | |      |
+         '------===------'
+                    </h4></a></pre>
 	</body>
 </html>

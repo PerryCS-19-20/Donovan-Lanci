@@ -7,8 +7,9 @@ and open the template in the editor.
     <head>
         <title>Times Table</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="stylesheet" type="text/css" href="menu.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <style>
             table, td, th {
                 border: solid 1px;
@@ -18,7 +19,10 @@ and open the template in the editor.
             }
         </style>
     </head>
-    <body onload="buildTimesTable();">
+    <body onload="buildMap('menubar'); buildTimesTable();">
+        <div id="menubar"></div>
+        <br>
+    <script src="sitemap.js"></script>
     <script>
         function changeColor(colorName){
                         document.body.style.backgroundColor = colorName;
@@ -53,11 +57,5 @@ and open the template in the editor.
             }
         }
     </script>
-    <ul class="navbar">
-            <li><span onmouseover ="changeColor('SeaGreen');"><a href="index.html"><h4>Home</h4></a></span></li>
-            <li><span onmouseover ="changeColor('pink');"><a href="bio.html"><h4>About Me</h4></a></span></li>
-            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightcyan');"><a href="htmltext.html"><h4>Html and Text Editors</h4></a></span></li>
-            </ul>
     </body>
 </html>

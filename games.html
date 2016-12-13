@@ -8,20 +8,17 @@ and open the template in the editor.
         <title>Games</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
-        <script>
+        <link rel="stylesheet" type="text/css" href="menu.css">
+    </head>
+    
+        <script src="sitemap.js">
             function changeColor(colorName){
                         document.body.style.backgroundColor = colorName;
                     }
         </script>
     </head>
-    <body>
-            <ul class="navbar">
-            <li><span onmouseover ="changeColor('lightCoral');"><a href="index.html"><h4>Home</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightgreen');"><a href="bio.html"><h4>About Me</h4></a></span></li>
-            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightcyan');"><a href="htmltext.html"><h4>Html and Text Editors</h4></a></span></li>
-            <li><span onmouseover ="changeColor('pink');"><a href="sitemap.html"><h4>Sitemap</h4></a></span></li>
-            </ul>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
         <a href="breakout.html"><h3>Breakout</h3></a>
         <a href="CSGO.html"><h3>CS:GO SIM</h3></a>
         <a href="tictactoe.html"><h3>Tic-Tac-Toe</h3></a>

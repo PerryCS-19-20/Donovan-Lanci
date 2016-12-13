@@ -10,7 +10,6 @@ function buildMap(elemid){
     projects.textContent = "Projects";
     list.appendChild(item("Home", "index.html"));
     list.appendChild(item("About Me", "bio.html"));
-    list.appendChild(item("Games","games.html"));
     subList.appendChild(item("Breakout", "breakout.html"));
     subList.appendChild(item("CSGO SIM", "CSGO.html"));
     subList.appendChild(item("TIC-TAC-TOE","tictactoe.html"));
@@ -20,7 +19,7 @@ function buildMap(elemid){
     subList.appendChild(item("Multiplication Table","timestable.html"));
     subList.appendChild(item("Slider Multiplication","slidertable.html"));
     list.appendChild(projects);
-    list.appendChild(subList);
+    projects.appendChild(subList);
     area.appendChild(list);
 }
 function item(name,link){

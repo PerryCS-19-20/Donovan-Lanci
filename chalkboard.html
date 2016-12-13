@@ -8,23 +8,16 @@ and open the template in the editor.
         <title>Text Content</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="stylesheet" type="text/css" href="menu.css">
     </head>
-    <body>
-            <ul class="navbar">
-            <li><span onmouseover ="changeColor('lightCoral');"><a href="index.html"><h4>Home</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightgreen');"><a href="bio.html"><h4>About Me</h4></a></span></li>
-            <li><span onmouseover ="changeColor('Aquamarine');"><a href="games.html"><h4>Games</h4></a></span></li>
-            <li><span onmouseover ="changeColor('lightcyan');"><a href="htmltext.html"><h4>Html and Text Editors</h4></a></span></li>
-            <li><span onmouseover ="changeColor('pink');"><a href="sitemap.html"><h4>Sitemap</h4></a></span></li>
-            </ul>
+    <body onload="buildMap('menubar');">
+        <div id="menubar"></div>
         <br>
         <textarea rows="30" cols="50" id="inputText"> waste chalk ;)</textarea>
         <button onclick="textArea();">The Simpson's</button>
         <ol id="box"></ol>
+        <script src="sitemap.js"></script>
         <script>
-            function changeColor(colorName){
-                        document.body.style.backgroundColor = colorName;
-                    }
             function textArea(){
             for (var i = 0; i < 100; i++) {
                 var span = document.getElementById("box");

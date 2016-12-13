@@ -1,0 +1,76 @@
+/* 
+    Document   : menu
+    Created on : Dec 9, 2016, 7:19:18 AM
+    Author     : S111273
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+#menubar {
+	position: relative;
+	padding: 0px;
+	display: block;
+background-color: grey;
+}
+
+
+/* class on a list that makes up the menu */
+#menubar > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:black;
+    font-family: "Comic Sans MS";
+    font-size:20px;
+}
+
+
+/* top-level menu as a bar across page */
+#menubar > ul > li {
+display: inline-block;
+padding: 8px;
+}
+
+
+/* no bullets on menu items */ 
+#menubar ul li {
+	list-style: none;
+text-indent: 0px;
+color:white;
+}
+/* hide dropdown menus - sublists */
+#menubar ul ul {
+	display: none;
+	position: absolute;
+background-color: lightgrey;
+padding: 0px;
+
+}
+
+
+/* Show dropdown when hovering over its menu */
+#menubar ul li:hover ul,
+#menubar ul li:focus ul,
+#menubar ul li:active ul {
+	display: block;
+}
+
+
+/* Make menu links look normal */
+#menubar a {
+	display: block;
+color: white;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+
+/* Change the link color on hover */
+#menubar ul ul li a:hover {
+	background-color: grey;
+	color: white;
+}

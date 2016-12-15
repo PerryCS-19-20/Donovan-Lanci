@@ -18,6 +18,7 @@ function buildMap(elemid){
     subList.appendChild(item("To Do List","todolist.html"));
     subList.appendChild(item("Multiplication Table","timestable.html"));
     subList.appendChild(item("Slider Multiplication","slidertable.html"));
+    subList.appendChild(item("Sphere Calculator", "sphere.html"));
     list.appendChild(projects);
     projects.appendChild(subList);
     area.appendChild(list);
